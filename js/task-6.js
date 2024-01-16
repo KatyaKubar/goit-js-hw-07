@@ -3,8 +3,10 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+
+const boxesContainer = document.getElementById("boxes");
+
 function createBoxes(amount) {
-  const boxesContainer = document.getElementById("boxes");
   boxesContainer.innerHTML = "";
 
   let size = 30;
@@ -20,7 +22,6 @@ function createBoxes(amount) {
 }
 
 function destroyBoxes() {
-  const boxesContainer = document.getElementById("boxes");
   boxesContainer.innerHTML = "";
 }
 
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector("input");
 
   createButton.addEventListener("click", () => {
-    const amount = parseInt(input.value);
+    const amount = Number(input.value);
 
     if (amount >= 1 && amount <= 100) {
       createBoxes(amount);

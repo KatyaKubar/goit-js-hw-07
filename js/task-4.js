@@ -3,19 +3,12 @@ const form = document.querySelector(".login-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const email = form.elements.namedItem("email").value;
-  const password = form.elements.namedItem("password").value;
+  const email = form.elements.namedItem("email").value.trim();
+  const password = form.elements.namedItem("password").value.trim();
   if (!email || !password) {
-    alert("All form fields must be filled in");
+    alert("Всі поля форми повинні бути заповнені");
     return;
   }
 
-  const data = {
-    email: email.trim(),
-    password: password.trim(),
-  };
-
-  console.log(data);
-
-  form.reset();
+  const data = { email, password };
 });

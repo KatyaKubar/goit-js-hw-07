@@ -28,20 +28,15 @@ const images = [
   },
 ];
 const gallery = document.querySelector(".gallery");
+const fragment = document.createDocumentFragment(); // Створити фрагмент
 
 for (const image of images) {
   const li = document.createElement("li");
-
   const img = document.createElement("img");
   img.src = image.url;
   img.alt = image.alt;
-
   li.appendChild(img);
-
-  gallery.appendChild(li);
+  fragment.appendChild(li); // Додати li до фрагменту
 }
 
-/*gallery.classList.add("flex");
-gallery.classList.add("flex-wrap");
-gallery.classList.add("justify-content-space-between");
-gallery.classList.add("align-items-center");*/
+gallery.appendChild(fragment); // Додати фрагмент до галереї одним разом
